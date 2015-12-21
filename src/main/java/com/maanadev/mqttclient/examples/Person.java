@@ -27,7 +27,7 @@ public class Person {
 	}
 	@Override
 	public String toString() {
-		String string= "Person'name is "+name+" and "+age+" old and"+height+" feet tall";
+		String string= "Person's name is "+name+" and "+age+" old and"+height+" feet tall";
 		return string;
 	}
 	
