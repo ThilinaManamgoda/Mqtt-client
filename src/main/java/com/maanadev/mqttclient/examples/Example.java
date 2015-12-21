@@ -31,12 +31,11 @@ public class Example {
 				MQTTSampleConstants.DEFAULT_PASSWORD);
 		sender.sendMessage("test", message);
 		sender.close();
-		
-		//DEMONSTRATE HOW TO GET OBJECT FOMR MQTT MESSAGE
-//		Person person = converter.getObject(message, Person.class);
-//		System.out.println(person.toString());
-		
-		
+
+		// DEMONSTRATE HOW TO GET OBJECT FOMR MQTT MESSAGE
+		// Person person = converter.getObject(message, Person.class);
+		// System.out.println(person.toString());
+
 	}
 
 }

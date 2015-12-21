@@ -23,23 +23,22 @@ package com.maanadev.mqttclient.constants;
  */
 public class MQTTSampleConstants {
 
-    /**
-     * Stop creating instance of this since this is only used to store constants.
-     */
-    private MQTTSampleConstants() {
-    }
+	/**
+	 * Stop creating instance of this since this is only used to store
+	 * constants.
+	 */
+	private MQTTSampleConstants() {
+	}
 
-    // The URL of the Message Broker
-    public static final String BROKER_URL = "tcp://localhost:1883";
+	// The URL of the Message Broker
+	public static final String BROKER_URL = "tcp://localhost:1883";
 
-    // The temp directory to use for mqtt client
-    public static final String TMP_DIR = System.getProperty("java.io.tmpdir");
+	// The temp directory to use for mqtt client
+	public static final String TMP_DIR = System.getProperty("java.io.tmpdir");
 
-    
-
-    /**
-     * Credentials to be used when connecting to MQTT server
-     */
-    public static final String DEFAULT_USER_NAME = "admin";
-    public static final String DEFAULT_PASSWORD = "admin";
+	/**
+	 * Credentials to be used when connecting to MQTT server
+	 */
+	public static final String DEFAULT_USER_NAME = "admin";
+	public static final String DEFAULT_PASSWORD = "admin";
 }

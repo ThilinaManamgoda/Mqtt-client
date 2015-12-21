@@ -10,14 +10,13 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 
 public class JsonConverter<T> {
 
-	
 	public JsonConverter() {
 	}
-	
-	public MqttMessage getJsonMqttmessageOfClass(T t){
-		
+
+	public MqttMessage getJsonMqttmessageOfClass(T t) {
+
 		ObjectMapper mapper = new ObjectMapper();
-		
+
 		String string = null;
 		try {
 			string = mapper.writeValueAsString(t);
@@ -30,14 +29,15 @@ public class JsonConverter<T> {
 		}
 		MqttMessage message = new MqttMessage();
 		message.setPayload(string.getBytes());
-		
+
 		return message;
 	}
-	public T getObject(MqttMessage message,Class<T> t){
+
+	public T getObject(MqttMessage message, Class<T> t) {
 		ObjectMapper mapper = new ObjectMapper();
-		T t_return =null;
+		T t_return = null;
 		try {
-			t_return = mapper.readValue(message.toString(),t);
+			t_return = mapper.readValue(message.toString(), t);
 		} catch (JsonParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -50,5 +50,5 @@ public class JsonConverter<T> {
 		}
 		return t_return;
 	}
-	
+
 }

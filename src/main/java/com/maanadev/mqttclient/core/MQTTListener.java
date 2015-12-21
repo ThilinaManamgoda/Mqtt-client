@@ -15,24 +15,23 @@ import com.maanadev.mqttclient.constants.MQTTSampleConstants;
 public class MQTTListener implements MqttCallback {
 
 	private MqttClient mqttClient;
-	
 
-
-	public MQTTListener(boolean cleanSession, String userName, String password, String clientId,String topic) throws MqttException {
-		 MqttConnectOptions options = new MqttConnectOptions();
-	        options.setCleanSession(cleanSession);
-	        options.setUserName(userName);
-	        options.setPassword(password.toCharArray());
-	        mqttClient = new MqttClient(MQTTSampleConstants.BROKER_URL, clientId,
-	                new MqttDefaultFilePersistence(MQTTSampleConstants.TMP_DIR + File.separator + clientId));
-	        mqttClient.setCallback(this);
-	        mqttClient.connect(options);
-	        mqttClient.subscribe(topic);
+	public MQTTListener(boolean cleanSession, String userName, String password, String clientId, String topic)
+			throws MqttException {
+		MqttConnectOptions options = new MqttConnectOptions();
+		options.setCleanSession(cleanSession);
+		options.setUserName(userName);
+		options.setPassword(password.toCharArray());
+		mqttClient = new MqttClient(MQTTSampleConstants.BROKER_URL, clientId,
+				new MqttDefaultFilePersistence(MQTTSampleConstants.TMP_DIR + File.separator + clientId));
+		mqttClient.setCallback(this);
+		mqttClient.connect(options);
+		mqttClient.subscribe(topic);
 
 	}
 
-	public void close(){
-		
+	public void close() {
+
 		try {
 			mqttClient.disconnect();
 			mqttClient.close();
@@ -45,13 +44,9 @@ public class MQTTListener implements MqttCallback {
 		System.out.println("Connection losed !");
 	}
 
-
-
 	public void deliveryComplete(IMqttDeliveryToken arg0) {
 		System.out.println("Delivery Completed !");
 	}
-
-
 
 	public void messageArrived(String arg0, MqttMessage arg1) throws Exception {
 		System.out.println(arg1.toString());
