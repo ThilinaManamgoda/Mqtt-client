@@ -10,11 +10,11 @@ import com.maanadev.mqttclient.core.MQTTSender;
 
 public class Example {
 
-	public static void main(String[] args) throws MqttException {
+public static void main(String[] args) throws MqttException {
 
 		// SET MQTT LISTENER FOR RECEIVE MQTT MESSAGE
 		MQTTListener mqttListener = new MQTTListener(true, MQTTSampleConstants.DEFAULT_USER_NAME,
-				MQTTSampleConstants.DEFAULT_PASSWORD, "client2", "test");
+				MQTTSampleConstants.DEFAULT_PASSWORD, "3313", "controllInfo");
 
 		// SEND A MQTT MESSAGE THAT CONTAIN PERSON OBJECT AS PAYLOAD
 
@@ -32,9 +32,9 @@ public class Example {
 		sender.sendMessage("test", message);
 		sender.close();
 
-		// DEMONSTRATE HOW TO GET OBJECT FOMR MQTT MESSAGE
-		// Person person = converter.getObject(message, Person.class);
-		// System.out.println(person.toString());
+		 //DEMONSTRATE HOW TO GET OBJECT FOMR MQTT MESSAGE
+		 Person person = converter.getObject(message, Person.class);
+		 System.out.println(person.toString());
 
 	}
 

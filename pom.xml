@@ -5,7 +5,7 @@
 	<artifactId>mqtt-client</artifactId>
 	<version>0.0.1</version>
 	<description>This can be used to send and receive Mqtt messages </description>
-
+<packaging>jar</packaging>
 
 	<dependencies>
 		<dependency>
@@ -20,8 +20,38 @@
 			<artifactId>org.eclipse.paho.client.mqttv3</artifactId>
 			<version>1.0.2</version>
 		</dependency>
+<!-- http://mvnrepository.com/artifact/com.jolira/onejar-maven-plugin -->
+<dependency>
+    <groupId>com.jolira</groupId>
+    <artifactId>onejar-maven-plugin</artifactId>
+    <version>1.4.4</version>
+</dependency>
 
 
 	</dependencies>
+	 <build>
+     <plugins>
 
+	<!-- Includes the runtime dependencies -->
+	<plugin>
+				<groupId>com.jolira</groupId>
+				<artifactId>onejar-maven-plugin</artifactId>
+				<version>1.4.4</version>
+				<executions>
+					<execution>
+						<configuration>
+							<mainClass>com.maanadev.mqttclient.core.RunClient</mainClass>
+							<onejarVersion>0.97</onejarVersion>
+							<attachToBuild>true</attachToBuild>
+						</configuration>
+						<goals>
+							<goal>one-jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+	</plugins>
+  </build>
+
+	
 </project>
